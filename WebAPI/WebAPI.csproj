@@ -26,4 +26,8 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.2" />
   </ItemGroup>
 
+  <Target Name="NSwag" AfterTargets="Build">
+    <Exec Command="nswag run WebAPI.nswag /runtime:NetCore20 /variables:Configuration=$(Configuration)" />
+  </Target>
+
 </Project>
